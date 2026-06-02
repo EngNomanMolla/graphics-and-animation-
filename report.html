@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Times New Roman', Times, serif;
-            line-height: 1.45;
+            line-height: 1.4;
             color: var(--text-color);
             margin: 0;
             padding: 30px;
@@ -31,7 +31,7 @@
             color: var(--primary-color);
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         h1 {
@@ -39,7 +39,7 @@
             text-align: center;
             margin-bottom: 2px;
             border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 8px;
+            padding-bottom: 6px;
         }
 
         .subtitle {
@@ -47,19 +47,21 @@
             font-style: italic;
             font-size: 13pt;
             color: #7f8c8d;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         h2 {
-            font-size: 15pt;
+            font-size: 14pt;
             border-bottom: 1.5px solid var(--primary-color);
-            padding-bottom: 4px;
-            margin-top: 18px;
+            padding-bottom: 3px;
+            margin-top: 15px;
+            margin-bottom: 10px;
         }
 
         h3 {
-            font-size: 12pt;
-            margin-top: 12px;
+            font-size: 11.5pt;
+            margin-top: 10px;
+            margin-bottom: 5px;
             color: var(--accent-color);
         }
 
@@ -67,25 +69,25 @@
             font-size: 10.5pt;
             text-align: justify;
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         ul {
             font-size: 10.5pt;
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             padding-left: 20px;
         }
 
         li {
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 10pt;
+            margin: 12px 0;
+            font-size: 9.5pt;
             text-align: left;
         }
 
@@ -93,12 +95,12 @@
             background-color: var(--primary-color);
             color: #ffffff;
             font-weight: bold;
-            padding: 8px 10px;
+            padding: 6px 8px;
             border: 1px solid var(--border-color);
         }
 
         table td {
-            padding: 8px 10px;
+            padding: 6px 8px;
             border: 1px solid var(--border-color);
         }
 
@@ -108,7 +110,7 @@
 
         .snapshot-container {
             text-align: center;
-            margin: 15px 0;
+            margin: 10px 0;
         }
 
         .snapshot-img {
@@ -116,14 +118,13 @@
             height: auto;
             border: 1.5px solid var(--primary-color);
             border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .caption {
             font-size: 9pt;
             font-style: italic;
             color: #555;
-            margin-top: 6px;
+            margin-top: 4px;
             text-align: center;
         }
 
@@ -134,17 +135,20 @@
                 margin: 0; /* Hides default browser header & footer containing URLs */
             }
             body {
-                padding: 1.5cm 2cm; /* Safe margins inside the page context */
+                padding: 1.2cm 1.8cm; /* Safe margins inside the page context */
                 color: #000000;
                 font-size: 10.5pt;
             }
             .page-break {
                 page-break-before: always;
+                height: 0;
+                margin: 0;
+                border: none;
             }
             .snapshot-img {
                 box-shadow: none;
                 border: 1px solid #000000;
-                max-width: 90%;
+                max-width: 85%;
             }
             table th {
                 background-color: #f2f2f2 !important;
@@ -155,11 +159,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- Title Page -->
+        <!-- PAGE 1 -->
         <h1>A Pen and a Paper in 3D Space</h1>
         <div class="subtitle">Computer Graphics & Animation Project Report</div>
 
-        <!-- Section 1 -->
         <h2>1. Project Requirements</h2>
         <p>
             The primary goal of this project is to implement an interactive 3D workspace scene using <strong>Three.js</strong>. The scene depicts a notebook paper sheet resting on a wooden desk with an active pen drawing on it. The implementation successfully incorporates:
@@ -173,7 +176,6 @@
             <li><strong>Interactivity</strong>: Keyboard spherical camera orbiting, mouse orbital navigation, draw mode, and pen switching.</li>
         </ul>
 
-        <!-- Section 2 -->
         <h2>2. Software Platform</h2>
         <p>
             The project is built entirely on web standards running natively in any modern web browser:
@@ -185,7 +187,9 @@
             <li><strong>HTML5 Canvas API</strong>: Real-time procedural texture mapping.</li>
         </ul>
 
-        <!-- Section 3 -->
+        <div class="page-break"></div>
+
+        <!-- PAGE 2 -->
         <h2>3. Project Features</h2>
 
         <h3>3.1 Models and Texture Mapping</h3>
@@ -208,6 +212,9 @@
             <li><code>Space</code> smoothly resets the camera back to the original isometric viewport angle.</li>
         </ul>
 
+        <div class="page-break"></div>
+
+        <!-- PAGE 3: 3.3 to 3.6 on the same page -->
         <h3>3.3 Mouse Interaction</h3>
         <p>
             Context-aware: OrbitControls are used for viewing, while toggling "Enable Mouse Drawing" projects a ray onto the paper. Dragging paints ink strokes onto the canvas, and the 3D pen follows the cursor.
@@ -234,7 +241,7 @@
 
         <div class="page-break"></div>
 
-        <!-- Section 3.7 (Feature Table) -->
+        <!-- PAGE 4 -->
         <h2>3.7 Project Feature Status Table</h2>
         <table>
             <thead>
@@ -304,13 +311,18 @@
         </table>
         <div class="caption" style="margin-top: -10px;">Table 01: Project Feature Table</div>
 
-        <!-- Section 4 (Snapshots) and Section 5 (Contribution) grouped together cleanly -->
+        <div class="page-break"></div>
+
+        <!-- PAGE 5 -->
         <h2>4. Snapshots</h2>
         <div class="snapshot-container">
             <img class="snapshot-img" src="snapshot.png" alt="A Pen and a Paper WebGL Render">
             <div class="caption">Figure 01: High-fidelity rendered 3D scene displaying writing path, desk lamp shadows, and marble shader.</div>
         </div>
 
+        <div class="page-break"></div>
+
+        <!-- PAGE 6 -->
         <h2>5. Contribution</h2>
         <p>
             The project development tasks were distributed among the group members as follows:
