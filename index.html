@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Pen and a Paper - Three.js WebGL Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.147.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.147.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- WebGL Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- UI Overlay -->
+    <main class="ui-container">
+        <!-- Header -->
+        <header class="main-header">
+            <h1>A Pen & a Paper</h1>
+            <p class="subtitle">An interactive WebGL study in geometry, shaders & lighting</p>
+        </header>
+
+        <!-- Sidebar / Settings Drawer -->
+        <section class="controls-panel">
+            <div class="panel-section">
+                <h2>Pen Selection</h2>
+                <div class="pen-selector">
+                    <button class="btn-pen active" id="pen-fountain" data-pen="fountain">
+                        <span class="pen-icon">✒️</span>
+                        <div class="pen-info">
+                            <span class="pen-name">Fountain Pen</span>
+                            <span class="pen-desc">Classic marble & gold</span>
+                        </div>
+                    </button>
+                    <button class="btn-pen" id="pen-stylus" data-pen="stylus">
+                        <span class="pen-icon">🖊️</span>
+                        <div class="pen-info">
+                            <span class="pen-name">Modern Stylus</span>
+                            <span class="pen-desc">Holographic titanium</span>
+                        </div>
+                    </button>
+                    <button class="btn-pen" id="pen-pencil" data-pen="pencil">
+                        <span class="pen-icon">✏️</span>
+                        <div class="pen-info">
+                            <span class="pen-name">Wooden Pencil</span>
+                            <span class="pen-desc">Cedar & graphite</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h2>Writing Options</h2>
+                <div class="color-picker-container">
+                    <label for="ink-color">Ink Color</label>
+                    <div class="color-presets">
+                        <button class="color-dot active" style="background-color: #0b2240;" data-color="#0b2240" title="Royal Blue"></button>
+                        <button class="color-dot" style="background-color: #1c1c1c;" data-color="#1c1c1c" title="Charcoal Black"></button>
+                        <button class="color-dot" style="background-color: #a31d1d;" data-color="#a31d1d" title="Crimson Red"></button>
+                        <button class="color-dot" style="background-color: #0d8253;" data-color="#0d8253" title="Emerald Green"></button>
+                        <button class="color-dot" style="background-color: #e0ac00;" data-color="#e0ac00" title="Gold Ink"></button>
+                    </div>
+                </div>
+                
+                <div class="mode-toggles">
+                    <button id="btn-draw-mode" class="btn-toggle">
+                        <span class="icon">✍️</span> Enable Mouse Drawing
+                    </button>
+                    <button id="btn-clear" class="btn-action">
+                        <span class="icon">🗑️</span> Clear Paper
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h2>Animation</h2>
+                <div class="animation-controls">
+                    <button id="btn-play-pause" class="btn-action">
+                        <span class="icon" id="play-pause-icon">⏸</span> <span id="play-pause-text">Pause Auto-Write</span>
+                    </button>
+                    <div class="speed-slider">
+                        <label for="write-speed">Speed</label>
+                        <input type="range" id="write-speed" min="0.1" max="2" step="0.1" value="1">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Guide -->
+        <footer class="controls-guide">
+            <div class="guide-item">
+                <span class="key">🖱️ Mouse</span>
+                <span class="action">Left Click + Drag to Rotate | Right Click + Drag to Pan | Scroll to Zoom</span>
+            </div>
+            <div class="guide-item">
+                <span class="key">⌨️ Keyboard</span>
+                <span class="action">Orbit view: <span class="key-badge">W</span><span class="key-badge">A</span><span class="key-badge">S</span><span class="key-badge">D</span> / <span class="key-badge">▲</span><span class="key-badge">▼</span><span class="key-badge">◀</span><span class="key-badge">▶</span> | Reset: <span class="key-badge">Space</span></span>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Main JS Application Module -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
