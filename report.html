@@ -7,6 +7,7 @@
     <style>
         :root {
             --primary-color: #0b2240;
+            --accent-color: #0071e3;
             --text-color: #2c3e50;
             --border-color: #bdc3c7;
             --bg-light: #f8f9fa;
@@ -14,10 +15,10 @@
 
         body {
             font-family: 'Times New Roman', Times, serif;
-            line-height: 1.6;
+            line-height: 1.45;
             color: var(--text-color);
             margin: 0;
-            padding: 40px;
+            padding: 30px;
             background-color: #ffffff;
         }
 
@@ -30,76 +31,61 @@
             color: var(--primary-color);
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 700;
+            margin-bottom: 8px;
         }
 
         h1 {
-            font-size: 26pt;
+            font-size: 24pt;
             text-align: center;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
             border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .subtitle {
             text-align: center;
             font-style: italic;
-            font-size: 14pt;
+            font-size: 13pt;
             color: #7f8c8d;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
         }
 
         h2 {
-            font-size: 18pt;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-            margin-top: 30px;
+            font-size: 15pt;
+            border-bottom: 1.5px solid var(--primary-color);
+            padding-bottom: 4px;
+            margin-top: 18px;
         }
 
         h3 {
-            font-size: 14pt;
-            margin-top: 20px;
+            font-size: 12pt;
+            margin-top: 12px;
+            color: var(--accent-color);
         }
 
         p {
-            font-size: 12pt;
+            font-size: 10.5pt;
             text-align: justify;
-            margin-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 10px;
         }
 
         ul {
-            font-size: 12pt;
-            margin-bottom: 15px;
+            font-size: 10.5pt;
+            margin-top: 0;
+            margin-bottom: 10px;
             padding-left: 20px;
         }
 
         li {
-            margin-bottom: 5px;
-        }
-
-        code {
-            font-family: Consolas, Monaco, monospace;
-            background-color: var(--bg-light);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 10pt;
-        }
-
-        pre {
-            font-family: Consolas, Monaco, monospace;
-            background-color: var(--bg-light);
-            border: 1px solid var(--border-color);
-            padding: 15px;
-            border-radius: 6px;
-            overflow-x: auto;
-            font-size: 10pt;
-            white-space: pre-wrap;
+            margin-bottom: 4px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 11pt;
+            margin: 15px 0;
+            font-size: 10pt;
             text-align: left;
         }
 
@@ -107,12 +93,12 @@
             background-color: var(--primary-color);
             color: #ffffff;
             font-weight: bold;
-            padding: 10px;
+            padding: 8px 10px;
             border: 1px solid var(--border-color);
         }
 
         table td {
-            padding: 10px;
+            padding: 8px 10px;
             border: 1px solid var(--border-color);
         }
 
@@ -122,40 +108,47 @@
 
         .snapshot-container {
             text-align: center;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .snapshot-img {
-            max-width: 100%;
+            max-width: 95%;
             height: auto;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1.5px solid var(--primary-color);
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .caption {
-            font-size: 10pt;
+            font-size: 9pt;
             font-style: italic;
-            color: #7f8c8d;
-            margin-top: 8px;
+            color: #555;
+            margin-top: 6px;
+            text-align: center;
         }
 
         /* Print formatting */
         @media print {
+            @page {
+                size: A4;
+                margin: 0; /* Hides default browser header & footer containing URLs */
+            }
             body {
-                padding: 20px;
+                padding: 1.5cm 2cm; /* Safe margins inside the page context */
                 color: #000000;
+                font-size: 10.5pt;
             }
             .page-break {
                 page-break-before: always;
             }
-            a {
-                text-decoration: none;
-                color: #000000;
-            }
             .snapshot-img {
                 box-shadow: none;
                 border: 1px solid #000000;
+                max-width: 90%;
+            }
+            table th {
+                background-color: #f2f2f2 !important;
+                color: #000000 !important;
             }
         }
     </style>
@@ -169,103 +162,74 @@
         <!-- Section 1 -->
         <h2>1. Project Requirements</h2>
         <p>
-            The primary goal of this project is to implement a high-fidelity, interactive 3D scene of a writing workspace using <strong>Three.js</strong>. The scene features a piece of paper resting on a wooden desk with a pen drawing dynamically on it. The implementation successfully incorporates the following requirements:
+            The primary goal of this project is to implement an interactive 3D workspace scene using <strong>Three.js</strong>. The scene depicts a notebook paper sheet resting on a wooden desk with an active pen drawing on it. The implementation successfully incorporates:
         </p>
         <ul>
-            <li><strong>Custom GLSL Shaders</strong>: Custom vertex and fragment shaders to render complex marble and holographic surface finishes.</li>
-            <li><strong>Lighting</strong>: Focused local lighting (spotlight desk lamp) combined with ambient fill and localized tip lighting, including soft shadow-mapping support.</li>
-            <li><strong>Perspective Projection</strong>: Perspective viewport mapping with realistic focal settings.</li>
-            <li><strong>Textures</strong>: Custom procedural textures for the desk (walnut wood), paper (notebook ruled lines and pulpy fiber bumps), and pencil (cedar stripes).</li>
-            <li><strong>Animations</strong>: Cursive handwriting animation using spline tracking and parametric curves, paired with realistic pen lift/drop and directional tilt kinematics.</li>
-            <li><strong>Interactivity</strong>: Spherical camera orbiting via keyboard inputs, full orbital navigation via mouse, dynamic pen switching, color picking, and an interactive mouse-drawing canvas mode.</li>
+            <li><strong>Custom GLSL Shaders</strong>: Custom vertex/fragment shaders for marble and holographic pen finishes.</li>
+            <li><strong>Lighting</strong>: SpotLight desk lamp with soft shadows, localized pen tip glow, and ambient room fill.</li>
+            <li><strong>Perspective Projection</strong>: Bounded perspective viewport camera matrix calculations.</li>
+            <li><strong>Textures</strong>: Procedural desk wood grain, lined notebook paper, paper fibers, and pencil cedar wood.</li>
+            <li><strong>Animations</strong>: Spline cursive writing path, automatic spirograph tracing, and kinetic pen tilting/lifting.</li>
+            <li><strong>Interactivity</strong>: Keyboard spherical camera orbiting, mouse orbital navigation, draw mode, and pen switching.</li>
         </ul>
 
         <!-- Section 2 -->
         <h2>2. Software Platform</h2>
         <p>
-            The project is built entirely on standard WebGL standards. The tools and technologies utilized include:
+            The project is built entirely on web standards running natively in any modern web browser:
         </p>
         <ul>
-            <li><strong>HTML5</strong>: Structural layout and containers.</li>
-            <li><strong>CSS3 (Vanilla)</strong>: Glassmorphic UI overlays, styles, and typography.</li>
-            <li><strong>JavaScript (ES6 Modules)</strong>: Core application logic.</li>
-            <li><strong>Three.js (r147)</strong>: WebGL 3D rendering wrapper.</li>
-            <li><strong>OrbitControls Add-on</strong>: Camera orbiting, panning, and zooming.</li>
-            <li><strong>HTML5 Canvas API</strong>: Programmatic procedural texture and bump map generation.</li>
+            <li><strong>HTML5 / CSS3</strong>: Structured elements and glassmorphic UI overlay panels.</li>
+            <li><strong>JavaScript (ES6 Modules)</strong>: Modular application logic.</li>
+            <li><strong>Three.js (r147) & OrbitControls</strong>: WebGL 3D rendering and camera controllers.</li>
+            <li><strong>HTML5 Canvas API</strong>: Real-time procedural texture mapping.</li>
         </ul>
-
-        <div class="page-break"></div>
 
         <!-- Section 3 -->
         <h2>3. Project Features</h2>
 
         <h3>3.1 Models and Texture Mapping</h3>
         <p>
-            All 3D objects and meshes are built using Three.js geometries, combined with dynamic custom texture maps to optimize resource loading:
+            All 3D objects and meshes are built using Three.js geometries, combined with dynamic custom texture maps:
         </p>
         <ul>
-            <li><strong>The Desk</strong>: Built from a <code>BoxGeometry</code> and mapped with a procedural walnut wood texture. It calculates growth rings and wood fibers in an HTML5 canvas context.</li>
-            <li><strong>The Paper</strong>: Styled with A4 proportions. It uses a <code>BoxGeometry</code> with custom materials. The top face represents a dynamic canvas texture containing rules, red margins, and fiber noise, which acts as the active ink-drawing buffer.</li>
-            <li><strong>The Pens</strong>: Swappable pen models consisting of:
-                <ul>
-                    <li><em>Fountain Pen</em>: Tapered metal grip, calligraphy gold nib, and a marble shader barrel.</li>
-                    <li><em>Modern Stylus</em>: Holographic barrel, dark titanium accents, and a glowing LED tip ring.</li>
-                    <li><em>Wooden Pencil</em>: Hexagonal body with cedar stripes, shaved wood cone, and a graphite lead tip.</li>
-                </ul>
-            </li>
-            <li><strong>The Glass Holder</strong>: A transmissive glass cup where unused pens dynamically rest.</li>
+            <li><strong>The Desk</strong>: Mapped with a procedural dark walnut wood texture generated using high-frequency noise fibers and wood knot wave calculations on startup.</li>
+            <li><strong>The Paper</strong>: A box with a dynamic canvas writing texture displaying rule lines, margins, and pulpy fibers.</li>
+            <li><strong>The Pens & Glass Holder</strong>: Swappable pen geometries (marble Fountain Pen, holographic Modern Stylus, cedar Wooden Pencil) and a translucent glass cup where unused pens dynamically rest.</li>
         </ul>
 
         <h3>3.2 Key Interaction</h3>
         <p>
-            Keyboard interaction allows camera orbiting using spherical coordinate calculations:
+            Allows camera orbiting around the paper using spherical coordinates:
         </p>
         <ul>
             <li><code>W</code> / <code>ArrowUp</code> and <code>S</code> / <code>ArrowDown</code> adjust the polar angle ($\phi$).</li>
             <li><code>A</code> / <code>ArrowLeft</code> and <code>D</code> / <code>ArrowRight</code> adjust the azimuthal angle ($\theta$).</li>
-            <li><code>Space</code> resets the camera back to the original isometric viewport angle using cubic easing interpolation.</li>
+            <li><code>Space</code> smoothly resets the camera back to the original isometric viewport angle.</li>
         </ul>
 
         <h3>3.3 Mouse Interaction</h3>
         <p>
-            Mouse controls are context-aware:
+            Context-aware: OrbitControls are used for viewing, while toggling "Enable Mouse Drawing" projects a ray onto the paper. Dragging paints ink strokes onto the canvas, and the 3D pen follows the cursor.
         </p>
-        <ul>
-            <li><strong>Camera Orbiting</strong>: Uses <code>OrbitControls</code> to orbit (left drag), pan (right drag), and zoom (scroll).</li>
-            <li><strong>Interactive Canvas Drawing</strong>: When "Enable Mouse Drawing" is toggled, mouse movements project a ray onto the paper. Dragging draws ink strokes directly onto the paper texture, and the 3D pen follows.</li>
-            <li><strong>UI Panel Selection</strong>: Buttons let the user swap pen types, colors, clear canvas, or pause auto-write.</li>
-        </ul>
 
         <h3>3.4 Animation</h3>
         <p>
-            The auto-write engine runs along a pre-compiled path of splines:
+            The auto-write engine moves the pen along a cursive path ("Three.js" and a spirograph). The pen tilts dynamically based on its motion velocity vector and lifts/drops realistically during transitions.
         </p>
-        <ul>
-            <li>The path plots out cursive letters spelling "Three.js" and finishes with a mathematical spirograph curve.</li>
-            <li>The pen dynamically lifts off the paper, travels in the air, and drops back down to draw.</li>
-            <li>The pen tilts dynamically opposite to its movement direction, simulating realistic hand-dragging kinematics.</li>
-        </ul>
-
-        <div class="page-break"></div>
 
         <h3>3.5 Lighting</h3>
         <p>
-            The workspace employs three light sources:
+            Uses a warm spotlight lamp ($0xfff1e0$, intensity $2.2$) with soft shadow-mapping (`THREE.PCFSoftShadowMap`), ambient room fill, and a localized point light at the stylus tip for a glowing neon bloom.
         </p>
-        <ul>
-            <li><strong>SpotLight</strong>: A desk lamp light source ($0xfff1e0$, intensity $2.2$) configured with <code>THREE.PCFSoftShadowMap</code> to cast soft, realistic pen shadows onto the paper.</li>
-            <li><strong>AmbientLight</strong>: Warm room fill lighting ($0xffffff$, intensity $0.35$).</li>
-            <li><strong>PointLight</strong>: Positioned at the pen tip. When the Modern Stylus is active, it emits neon light casting localized light reflections onto the paper.</li>
-        </ul>
 
         <h3>3.6 Custom Shaders</h3>
         <p>
-            Custom GLSL code is used for pen body materials:
+            Implemented via <code>THREE.ShaderMaterial</code>:
         </p>
         <ul>
-            <li><strong>Vertex Shader</strong>: Transforms vertex coordinates, normal vectors, and UV coordinates, passing them to the fragment shaders.</li>
-            <li><strong>Marble Fragment Shader</strong>: Implements Fractional Brownian Motion (fBm) noise to generate organic marble veins, shaded via a Blinn-Phong specular lighting model.</li>
-            <li><strong>Holographic Fragment Shader</strong>: Uses the dot product of the surface normal and view direction (Fresnel angle) to shift the material color toward a rainbow gradient, creating a thin-film iridescent metal look.</li>
+            <li><strong>Marble Shader (Fountain Pen)</strong>: Fragment shader uses Fractional Brownian Motion (fBm) noise to blend forest green and cream-gold veins under a Blinn-Phong specular reflection model.</li>
+            <li><strong>Holographic Shader (Stylus)</strong>: Fragment shader computes the Fresnel viewing angle to shift the body color toward a time-animated rainbow gradient, creating a thin-film iridescent metal look.</li>
         </ul>
 
         <div class="page-break"></div>
@@ -338,18 +302,15 @@
                 </tr>
             </tbody>
         </table>
-        <div class="caption" style="text-align: center; margin-top: -15px;">Table 01: Project Feature Table</div>
+        <div class="caption" style="margin-top: -10px;">Table 01: Project Feature Table</div>
 
-        <!-- Section 4 -->
+        <!-- Section 4 (Snapshots) and Section 5 (Contribution) grouped together cleanly -->
         <h2>4. Snapshots</h2>
         <div class="snapshot-container">
             <img class="snapshot-img" src="snapshot.png" alt="A Pen and a Paper WebGL Render">
             <div class="caption">Figure 01: High-fidelity rendered 3D scene displaying writing path, desk lamp shadows, and marble shader.</div>
         </div>
 
-        <div class="page-break"></div>
-
-        <!-- Section 5 -->
         <h2>5. Contribution</h2>
         <p>
             The project development tasks were distributed among the group members as follows:
@@ -364,23 +325,23 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>[Member 1 Name]</strong></td>
-                    <td>[Member 1 ID]</td>
+                    <td><strong>Ferdaous Wahid</strong></td>
+                    <td>2022100010077</td>
                     <td>Shader implementations (vertex and fragment), mathematical spirograph equations, and keyboard orbiting camera physics.</td>
                 </tr>
                 <tr>
-                    <td><strong>[Member 2 Name]</strong></td>
-                    <td>[Member 2 ID]</td>
+                    <td><strong>Abdullah Al Noman</strong></td>
+                    <td>2022200010031</td>
                     <td>Geometry modeling of the pens, desk lamp, glass holder, and UI overlay panel styling sheets.</td>
                 </tr>
                 <tr>
-                    <td><strong>[Member 3 Name]</strong></td>
-                    <td>[Member 3 ID]</td>
+                    <td><strong>Javer Hossain</strong></td>
+                    <td>2022100010086</td>
                     <td>Procedural canvas texture generators, raycasting drawing coordinates mapping, and spline path transitions.</td>
                 </tr>
             </tbody>
         </table>
-        <div class="caption" style="text-align: center; margin-top: -15px;">Table 02: Contribution Table</div>
+        <div class="caption" style="margin-top: -10px;">Table 02: Contribution Table</div>
     </div>
 </body>
 </html>
