@@ -655,51 +655,44 @@ function buildWritingPath() {
     const sY = 0.85;
     
     const strokes = [
-        // T-Cross stroke
-        { points: [new THREE.Vector3(-6 * sX, 4.5 * sY, 0), new THREE.Vector3(-3.2 * sX, 4.5 * sY, 0)], type: 'curve' },
-        // T-Stem stroke
-        { points: [new THREE.Vector3(-4.6 * sX, 4.5 * sY, 0), new THREE.Vector3(-4.6 * sX, 1.8 * sY, 0), new THREE.Vector3(-5.0 * sX, 1.4 * sY, 0), new THREE.Vector3(-5.3 * sX, 1.8 * sY, 0), new THREE.Vector3(-5.0 * sX, 2.2 * sY, 0)], type: 'curve' },
-        // h-r-e-e (Continuous flowing strokes)
+        // N-stroke (Cursive Capital N)
         { points: [
-            new THREE.Vector3(-4.1 * sX, 2.2 * sY, 0), 
-            new THREE.Vector3(-4.1 * sX, 4.0 * sY, 0), 
-            new THREE.Vector3(-4.1 * sX, 1.4 * sY, 0), 
-            new THREE.Vector3(-4.1 * sX, 2.3 * sY, 0), 
-            new THREE.Vector3(-3.5 * sX, 2.3 * sY, 0), 
-            new THREE.Vector3(-3.3 * sX, 1.4 * sY, 0), // h end, start r
-            new THREE.Vector3(-2.9 * sX, 2.3 * sY, 0), 
-            new THREE.Vector3(-2.4 * sX, 2.3 * sY, 0), 
-            new THREE.Vector3(-2.6 * sX, 1.4 * sY, 0), // r end, start e1
-            new THREE.Vector3(-1.9 * sX, 1.6 * sY, 0), 
-            new THREE.Vector3(-1.7 * sX, 2.1 * sY, 0), 
-            new THREE.Vector3(-2.1 * sX, 2.1 * sY, 0), 
-            new THREE.Vector3(-2.2 * sX, 1.5 * sY, 0), 
-            new THREE.Vector3(-1.7 * sX, 1.4 * sY, 0), // e1 end, start e2
-            new THREE.Vector3(-1.0 * sX, 1.6 * sY, 0), 
-            new THREE.Vector3(-0.8 * sX, 2.1 * sY, 0), 
-            new THREE.Vector3(-1.2 * sX, 2.1 * sY, 0), 
-            new THREE.Vector3(-1.3 * sX, 1.5 * sY, 0), 
-            new THREE.Vector3(-0.8 * sX, 1.4 * sY, 0),
-            new THREE.Vector3(-0.4 * sX, 1.8 * sY, 0)
+            new THREE.Vector3(-4.8 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(-4.8 * sX, 3.8 * sY, 0),
+            new THREE.Vector3(-3.4 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(-3.4 * sX, 3.8 * sY, 0),
+            new THREE.Vector3(-3.0 * sX, 3.0 * sY, 0)
         ], type: 'curve' },
-        // Dot stroke
-        { points: [new THREE.Vector3(0.1 * sX, 1.4 * sY, 0), new THREE.Vector3(0.15 * sX, 1.4 * sY, 0)], type: 'dot' },
-        // j-s stroke (Connected)
+        // o-m-a-n stroke (Continuous)
         { points: [
-            new THREE.Vector3(0.8 * sX, 2.3 * sY, 0), 
-            new THREE.Vector3(0.8 * sX, -0.4 * sY, 0), 
-            new THREE.Vector3(0.5 * sX, -0.8 * sY, 0), 
-            new THREE.Vector3(0.3 * sX, -0.4 * sY, 0), 
-            new THREE.Vector3(0.8 * sX, 1.2 * sY, 0), 
-            new THREE.Vector3(1.1 * sX, 1.5 * sY, 0), // j end, start s
-            new THREE.Vector3(1.6 * sX, 2.3 * sY, 0), 
-            new THREE.Vector3(1.8 * sX, 2.3 * sY, 0), 
-            new THREE.Vector3(1.4 * sX, 1.8 * sY, 0), 
-            new THREE.Vector3(1.9 * sX, 1.4 * sY, 0), 
-            new THREE.Vector3(2.1 * sX, 1.5 * sY, 0)
+            new THREE.Vector3(-2.2 * sX, 2.2 * sY, 0),
+            new THREE.Vector3(-2.6 * sX, 1.8 * sY, 0),
+            new THREE.Vector3(-2.4 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(-1.8 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(-1.6 * sX, 1.8 * sY, 0),
+            new THREE.Vector3(-2.0 * sX, 2.2 * sY, 0),
+            new THREE.Vector3(-2.2 * sX, 2.2 * sY, 0),
+            new THREE.Vector3(-1.6 * sX, 2.2 * sY, 0), // end o, start m
+            new THREE.Vector3(-1.2 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(-1.2 * sX, 2.2 * sY, 0), // hump 1
+            new THREE.Vector3(-0.9 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(-0.9 * sX, 2.2 * sY, 0), // hump 2
+            new THREE.Vector3(-0.6 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(-0.6 * sX, 2.2 * sY, 0), // hump 3
+            new THREE.Vector3(-0.3 * sX, 1.4 * sY, 0), // end m, start a
+            new THREE.Vector3(0.3 * sX, 2.2 * sY, 0),
+            new THREE.Vector3(0.0 * sX, 1.8 * sY, 0),
+            new THREE.Vector3(0.2 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(0.6 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(0.8 * sX, 1.8 * sY, 0),
+            new THREE.Vector3(0.6 * sX, 2.2 * sY, 0),
+            new THREE.Vector3(0.8 * sX, 1.4 * sY, 0), // end a, start n
+            new THREE.Vector3(1.2 * sX, 2.2 * sY, 0),
+            new THREE.Vector3(1.2 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(1.4 * sX, 2.2 * sY, 0),
+            new THREE.Vector3(1.8 * sX, 1.4 * sY, 0),
+            new THREE.Vector3(2.2 * sX, 1.7 * sY, 0)
         ], type: 'curve' },
-        // j-dot stroke
-        { points: [new THREE.Vector3(0.8 * sX, 2.8 * sY, 0), new THREE.Vector3(0.85 * sX, 2.8 * sY, 0)], type: 'dot' },
         // Scroll flourish
         { points: [
             new THREE.Vector3(2.1 * sX, 1.0 * sY, 0), 
